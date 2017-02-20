@@ -26,3 +26,31 @@ foreach ($sage_includes as $file) {
   require_once $filepath;
 }
 unset($file, $filepath);
+
+
+// Creates Custom Deals Post Type
+function deals_init() {
+    $args = array(
+      'label' => 'Deals',
+        'public' => true,
+        'show_ui' => true,
+        'capability_type' => array('deal', 'deals'),
+        'hierarchical' => false,
+        'rewrite' => array('slug' => 'deals'),
+        'query_var' => true,
+        'menu_icon' => 'dashicons-location',
+        'taxonomies'  => array( 'category' ),
+        'supports' => array(
+            'title',
+            'editor',
+            'excerpt',
+            'trackbacks',
+            'custom-fields',
+            'revisions',
+            'thumbnail',
+            'author',
+            'page-attributes',)
+        );
+    register_post_type( 'deals', $args );
+}
+add_action( 'init', 'deals_init' );
