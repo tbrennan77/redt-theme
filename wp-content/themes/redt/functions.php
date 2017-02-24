@@ -69,3 +69,27 @@ function theme_theme_customizer($wp_customize) {
 
 }
 add_action('customize_register', 'theme_theme_customizer');
+
+
+/**
+ * Returns an estimated reading time in a string
+ * idea from @link http://briancray.com/posts/estimated-reading-time-web-design/
+ * @param  string $content the content to be read
+ * @return string          estimated read time eg. 1 minute, 30 seconds
+ */
+function estimate_reading_time($content) {
+    $word_count = str_word_count(strip_tags($content));
+
+    $minutes = floor($word_count / 200);
+    $seconds = floor($word_count % 200 / (200 / 60));
+
+    $str_minutes = ($minutes == 1) ? "minute" : "minutes";
+    $str_seconds = ($seconds == 1) ? "second" : "seconds";
+
+    if ($minutes == 0) {
+        return "{$seconds} {$str_seconds}";
+    }
+    else {
+        return "{$minutes} {$str_minutes}, {$seconds} {$str_seconds}";
+    }
+}
