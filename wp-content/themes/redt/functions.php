@@ -26,3 +26,46 @@ foreach ($sage_includes as $file) {
   require_once $filepath;
 }
 unset($file, $filepath);
+
+
+//****************************
+// Theme Customizer Additions
+//****************************
+function theme_theme_customizer($wp_customize) {
+
+  $wp_customize->add_section( 'theme_logo_section' , array(
+      'title'       => __( 'Logo', 'theme' ),
+      'priority'    => 30,
+      'description' => 'Upload a logo for this theme',
+  ) );
+
+  $wp_customize->add_setting( 'theme_logo', array(
+    'default' => get_bloginfo('template_directory') . '/images/default-logo.png',
+  ) );
+
+  $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'theme_logo', array(
+    'label'    => __( 'Current logo', 'theme' ),
+    'section'  => 'theme_logo_section',
+    'settings' => 'theme_logo',
+  ) ) );  
+
+
+  $wp_customize->add_section( 'theme_footer_logo_section' , array(
+      'title'       => __( 'Footer Logo', 'theme' ),
+      'priority'    => 31,
+      'description' => 'Upload a footer logo for this theme',
+  ) );
+
+  $wp_customize->add_setting( 'theme_footer_logo', array(
+    'default' => get_bloginfo('template_directory') . '/images/default-logo.png',
+  ) );
+
+  $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'theme_logo2', array(
+    'label'    => __( 'Current footer logo', 'theme' ),
+    'section'  => 'theme_footer_logo_section',
+    'settings' => 'theme_footer_logo',
+  ) ) );  
+
+
+}
+add_action('customize_register', 'theme_theme_customizer');
