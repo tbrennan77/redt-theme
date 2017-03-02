@@ -29,3 +29,37 @@ wp-content/plugins/*
 # Ignore everything in the "themes" directory, except the themes you specify
 wp-content/themes/*
 !wp-content/themes/redt/
+
+# WP-CLI
+db-sync
+sql-dump-*.sql
+
+# Dotenv
+.env
+.env.*
+!.env.example
+
+# Vendor (e.g. Composer)
+site/vendor/*
+!site/vendor/.gitkeep
+
+# Node Package Manager
+node_modules
+
+# Vagrant
+bin
+Vagrantfile
+.vagrant
+trellis/vendor/roles
+
+# Sage
+dist
+bower_components
+node_modules
+npm-debug.log
+
+# Do NOT push ansible-vault passwords to git
+.vault*
+
+# OSX File System Cruft
+.DS_Store
