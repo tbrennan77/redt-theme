@@ -3,5 +3,48 @@ $enable-flex:           true;
 $main-sm-columns:       12;
 $sidebar-sm-columns:    4;
 
-// Colors
-$brand-primary:         #27ae60;
+
+$icon-font-path:        "../fonts/";
+
+// Grid settings
+$main-sm-columns:       12;
+$sidebar-sm-columns:    4;
+
+// Brand Colors
+$color-blue:	rgba(0,128,161,1);
+$color-lt-blue:	#467e9a;
+$color-black:	#3a3a3a;
+
+$color-bg-red:		#cc3333;
+$color-bg-brown:	#f1ede1;
+$color-bg-lt-brown:	#f9f6ef;
+$color-bg-white:	#ffffff;
+$color-blue-gray: #384e5e;
+
+$color-font-white:		#ffffff; //f9f4e9
+$color-font-red:		#cc3333;
+$color-font-lt-blue:	#65a5cd;
+$color-font-default: 	#183244;
+$color-font-dk-blue:	#213643;
+$color-font-dk-blue-alt:#002835;
+
+$color-border-blue:		#3c6273;
+$color-border-red:		#e46b6b;
+$color-border-lt-brown:	#e8e3d9;
+$color-border-lt-blue:	#426c86;
+$color-border-lt-blue-2: #577b93;
+
+$color-hyperlink:			#0056a1;
+
+// Font-Families
+$font-primary:				'Source Sans Pro', 'Open Sans', sans-serif;
+$font-primary-condensed:	'Open Sans Condensed', sans-serif;
+
+// Font-Weights
+$font-bold:				700;
+$font-light:			300;
+
+$text-shadow-default:	0px 2px 0px rgba(14, 23, 29, 0.43);
+$text-shadow-alt:		0px 2px 0px rgba(255, 255, 255, 0.43);
+
+$grid-float-breakpoint:     992px !default; 

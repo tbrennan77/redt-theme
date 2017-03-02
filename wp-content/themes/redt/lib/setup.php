@@ -71,6 +71,34 @@ function widgets_init() {
     'before_title'  => '<h3>',
     'after_title'   => '</h3>'
   ]);
+
+  register_sidebar([
+    'name'          => __('Search Col 1', 'sage'),
+    'id'            => 'search-one',
+    'before_widget' => '<section class="widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h2>',
+    'after_title'   => '</h2>'
+  ]);
+
+  register_sidebar([
+    'name'          => __('Search Col 2', 'sage'),
+    'id'            => 'search-two',
+    'before_widget' => '<section class="widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h2>',
+    'after_title'   => '</h2>'
+  ]);
+
+  register_sidebar([
+    'name'          => __('Search Col 3', 'sage'),
+    'id'            => 'search-three',
+    'before_widget' => '<section class="widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h2>',
+    'after_title'   => '</h2>'
+  ]);
+
 }
 add_action('widgets_init', __NAMESPACE__ . '\\widgets_init');
 

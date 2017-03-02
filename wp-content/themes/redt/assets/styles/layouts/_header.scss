@@ -1,0 +1,134 @@
+.menu-bar {
+	background-color: $color-lt-blue;
+}
+.search-container {
+	#search {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    max-height: 100%;
+	}
+	#label label {
+	    display: block;
+	    max-width: 100%;
+	    max-height: 100%;
+	   	width: 50px;
+	    height: 50px;
+	    background: url("../images/search-icon.png") no-repeat 50% 50%;
+	    font-size: 0;
+	    color: rgba(0, 0, 0, 0);
+	    text-indent: -9999px;
+	    cursor: pointer;
+	    margin: 0 auto;
+	}
+	#label label:hover {
+	    background: url("../images/search-icon.png") no-repeat 50% 50%;
+	}
+	#label.active label {
+	    background: url("../images/search-icon.png") no-repeat 50% 50%;
+	}
+	#input {
+      pointer-events: none;
+      transition: all 0.3s;
+      opacity: 0;
+	    position: absolute;
+	    top: 0;
+	    left: -420px;
+	    width: 470px;
+	    height: 50px;
+	    z-index: 5;
+	}
+	#input:after {
+    display: block;
+		right: -10px;
+		top: 50%;
+		border: solid transparent;
+		content: "";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+		border-top: 10px solid transparent;
+		border-left: 10px solid #e45959;
+		border-bottom: 10px solid transparent;
+		margin-top: -10px;
+	}
+	#input input {
+	    display: block;
+	    position: absolute;
+	    top: 0;
+	    left: 0px;
+	    width: 100%;
+	    height: 100%;
+	    margin: 0;
+	    padding: 0 10px;
+	    border: none;
+	    background-color: #e45959;
+	    color: #fff;
+	    font-size: 14px;
+	    backface-visibility: none;
+	    border-radius: 0;
+	    transition: right 0;
+	}
+	::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	  color: $color-font-white;
+	}
+	::-moz-placeholder { /* Firefox 19+ */
+	  color: $color-font-white;
+	}
+	:-ms-input-placeholder { /* IE 10+ */
+	  color: $color-font-white;
+	}
+	:-moz-placeholder { /* Firefox 18- */
+	  color: $color-font-white;
+	}
+	::-webkit-search-cancel-button {
+		-webkit-appearance: searchfield-cancel-button;
+	}
+	#input input:focus {
+	    outline: none
+	}
+	#input.focus {
+      pointer-events: all;
+	    z-index: 20;
+      left: -470px;
+      opacity: 1;
+	}
+	button.close {
+	    position: absolute;
+	    right: 12px;
+	    top: 15px;
+	    color: #fff;
+	    text-shadow: none;
+	    opacity: .9;
+	}
+	nav {
+	    padding-left: 70px;
+	    position: relative;
+	    z-index: 10;
+	}
+	nav ul {
+	    list-style-type: none;
+	    margin: 0;
+	    padding: 0;
+	}
+	nav li {
+	    display: inline-block;
+	    height: 60px;
+	    line-height: 60px;
+	    font-size: 24px;
+	    font-family: "Oswald", sans-serif;
+	    font-weight: 300;
+	    text-transform: uppercase;
+	}
+	nav a {
+	    display: block;
+	    padding: 0 15px;
+	    color: #c8c8c8;
+	}
+	nav a:hover {
+	    color: #3296c8
+	}
+
+}

@@ -15,7 +15,8 @@ $sage_includes = [
   'lib/setup.php',     // Theme setup
   'lib/titles.php',    // Page titles
   'lib/wrapper.php',   // Theme wrapper class
-  'lib/customizer.php' // Theme customizer
+  'lib/customizer.php', // Theme customizer
+  'lib/wp_bootstrap_navwalker.php' // Bootstrap nav added
 ];
 
 foreach ($sage_includes as $file) {
@@ -93,3 +94,30 @@ function estimate_reading_time($content) {
         return "{$minutes} {$str_minutes}, {$seconds} {$str_seconds}";
     }
 }
+
+
+
+function redt_popular_posts($post_id) {
+  $count_key = 'popular_posts';
+  $count = get_post_meta($post_id, $count_key, true);
+  if ($count == '') {
+    $count = 0;
+    delete_post_meta($post_id, $count_key);
+    add_post_meta($post_id, $count_key, '0');
+  } else {
+    $count++;
+    update_post_meta($post_id, $count_key, $count);
+  }
+}
+
+function redt_track_posts($post_id) {
+  if (!is_single()) return;
+  if (empty($post_id)) {
+    global $post;
+    $post_id = $post->ID;
+  }
+  redt_popular_posts($post_id);
+}
+add_action('wp_head', 'redt_track_posts');
+
+
