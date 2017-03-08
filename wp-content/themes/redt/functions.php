@@ -121,3 +121,84 @@ function redt_track_posts($post_id) {
 add_action('wp_head', 'redt_track_posts');
 
 
+// Creates Listings Custom Post Type
+function deals_init() {
+    $args = array(
+      'label' => 'Deals',
+        'public' => true,
+        'show_ui' => true,
+        'capability_type' => 'post',
+        'hierarchical' => false,
+        'rewrite' => array('slug' => 'deal'),
+        'query_var' => true,
+        'menu_icon' => 'dashicons-desktop',
+        'taxonomies'  => array( 'category' ),
+        'supports' => array(
+            'title',
+            'editor',
+            'excerpt',
+            'trackbacks',
+            'custom-fields',
+            'revisions',
+            'thumbnail',
+            'author',
+            'page-attributes',)
+        );
+    register_post_type( 'deal', $args );
+}
+add_action( 'init', 'deals_init' );
+
+
+function reorder_admin_menu( $__return_true ) {
+    return array(
+         'index.php',               // Dashboard
+         'acf-options',             // Home Page
+         'edit.php?post_type=page', // Pages
+         'edit.php?post_type=deal', // Listings
+         'edit.php', // Posts
+         'separator1', // --Space--
+         'separator1', // --Space--
+         'separator2', // --Space--
+         'separator3', // --Space--
+         'upload.php', // Media
+         'edit-comments.php', // Comments
+         'separator1', // --Space--
+         'separator1', // --Space--
+         'themes.php', // Appearance
+         'users.php', // Users
+         'separator4', // --Space--
+         'plugins.php', // Plugins
+         'tools.php', // Tools
+         'options-general.php', // Settings
+   );
+}
+add_filter( 'custom_menu_order', 'reorder_admin_menu' );
+add_filter( 'menu_order', 'reorder_admin_menu' );
+
+
+
+// Enable ACF Options Page
+if( function_exists('acf_add_options_page') ) {
+  acf_add_options_page();
+}
+
+if (function_exists('acf_set_options_page_title')){
+  acf_set_options_page_title('Footer Featured Logo Settings');
+}
+
+if (function_exists('acf_set_options_page_menu')){
+  acf_set_options_page_menu('Featured Logos');
+}
+
+// Enable Shortcodes in Widget Areas
+// Will be used for Event Calendar Shortcodes
+// Enable shortcodes in text widgets
+add_filter('widget_text','do_shortcode');
+
+
+// filter the Gravity Forms button type
+add_filter('gform_submit_button_2', 'form_submit_button', 10, 2 );
+function form_submit_button( $button, $form ) {
+    return "<button class='btn btn-primary btn-block' id='gform_submit_button_{$form['id']}'><span>Subscribe</span></button>";
+}
+

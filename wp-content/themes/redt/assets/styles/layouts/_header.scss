@@ -1,5 +1,15 @@
+header {
+	background-color: $color-black;
+}
+.brand-container {
+	background-color: $color-font-white;
+	padding: 10px 0;
+}
 .menu-bar {
 	background-color: $color-lt-blue;
+	position: fixed;
+    width: 100%;
+    z-index: 2000;
 }
 .search-container {
 	#search {
