@@ -9,6 +9,7 @@
   "dependencies": {
     "bootstrap": "git://github.com/twbs/bootstrap.git#v4.0.0-alpha.4",
     "font-awesome": "fontawesome#^4.6.3",
-    "Hover": "hover#^2.1.0"
+    "Hover": "hover#^2.1.0",
+    "bxslider-4": "bxslider-4#^4.2.8"
   }
 }
