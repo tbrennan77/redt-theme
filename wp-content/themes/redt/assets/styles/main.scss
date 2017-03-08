@@ -148,11 +148,43 @@ body {
 	    margin-top: 20px;
 	}
 }
-
 .featured-talks {
-
+	text-align: center;
+	padding: 50px 0;
 }
-
+.featured-talks {
+	h3 {
+		font-family: $font-primary;
+		color: $color-black;
+		font-weight: 700;
+		font-size: 3rem;
+	}
+}
+.welcome-video {
+	padding: 50px 0;
+}
+.welcome-video {
+	h3 {
+		font-family: $font-primary;
+		color: $color-font-white;
+		font-weight: 700;
+		font-size: 3rem;
+	}
+	.btn-outline-primary {
+		border: 2px solid #fff;
+	    color: $color-lt-blue;
+	    background-color: $color-font-white;
+	    padding: 10px 60px;
+	    border-radius: 10px;
+	    font-size: 18px;
+	    font-weight: 700;
+	    margin-top: 20px;
+	    width: 280px;
+	}
+	p {
+		color: $color-font-white;
+	}
+}
 .partner-with {
 	padding: 50px 0;
 }
@@ -179,5 +211,27 @@ body {
 	}
 	#social-list-header li img {
 		height: 40px;
+	}
+}
+.featured-row {
+	padding: 50px 0;
+	text-align: center;
+}
+.featured-row {
+	h3 {
+		font-family: $font-primary;
+		color: $color-lt-blue;
+		font-weight: 700;
+		font-size: 3rem;
+	}
+	.btn-primary {
+		color: $color-font-white;
+	    background-color: $color-lt-blue;
+	    padding: 10px 60px;
+	    border-radius: 10px;
+	    font-size: 18px;
+	    font-weight: 700;
+	    margin-top: 20px;
+	    width: 280px;
 	}
 }

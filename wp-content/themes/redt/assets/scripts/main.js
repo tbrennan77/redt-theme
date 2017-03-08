@@ -19,6 +19,15 @@
     'common': {
       init: function() {
         // JavaScript to be fired on all pages
+        $('.bxslider').bxSlider({
+            minSlides: 1,
+            maxSlides: 8,
+            slideWidth: 189,
+            slideMargin: 0,
+            ticker: true,
+            speed: 50000
+        });
+        
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
@@ -28,6 +37,7 @@
     'home': {
       init: function() {
         // JavaScript to be fired on the home page
+
       },
       finalize: function() {
         // JavaScript to be fired on the home page, after the init JS
@@ -157,18 +167,4 @@ if ( typeof define === 'function' && define.amd ) {
 
 })( window );
 
-
-$(window).scroll(function() {
-
-    //After scrolling 100px from the top...
-    if ( $(window).scrollTop() >= 100 ) {
-        $('#logo').css('display', 'none');
-        $('#menuheader').css('margin', '65px auto 0');
-
-    //Otherwise remove inline styles and thereby revert to original stying
-    } else {
-        $('#logo, #menuheader').attr('style', '');
-
-    }
-});
 
