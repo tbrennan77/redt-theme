@@ -42,7 +42,7 @@
       </div>
     </div>
   <div class="container-fluid brand-container">
-    <div class="container">
+    <div class="container pr-0 pl-0">
       <div class="row">
         <div class="col-md-3">
           <a class="navbar-brand" href="<?= esc_url(home_url('/')); ?>">

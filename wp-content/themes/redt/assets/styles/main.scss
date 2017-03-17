@@ -35,8 +35,13 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	overflow-x: hidden;
 	font-family: $font-primary;
+	color: $color-black;
+	line-height: 32px;
+	font-size: 18px;
 }
-
+img {
+   background: url(../images/loading.gif) no−repeat 50% 50%;
+}
 .slider-row {
 	background: url(../images/slider_background_2.png);
 	background-size: cover;
@@ -234,4 +239,37 @@ body {
 	    margin-top: 20px;
 	    width: 280px;
 	}
+}
+
+
+// Here is the standard stuff
+h1 {
+	font-family: $font-primary;
+	font-weight: 500;
+	font-size: 48px;
+	color: $color-black;
+	margin-bottom: 30px;
+}
+h2 {
+	font-family: $font-primary;
+	font-weight: 700;
+	font-size: 30px;
+	color: $color-font-lt-blue-alt;
+	margin-bottom: 30px;
+}
+h3 {
+	font-family: $font-primary;
+	font-weight: 300;
+	font-size: 44px;
+	color: #467e9a;
+	margin-bottom: 30px;
+}
+a {
+	color: $color-green;
+}
+a:hover {
+	color: $color-blue;
+}
+ul {
+	margin-left: 1em;
 }

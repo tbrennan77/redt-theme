@@ -35,6 +35,14 @@ function setup() {
   // http://codex.wordpress.org/Function_Reference/set_post_thumbnail_size
   // http://codex.wordpress.org/Function_Reference/add_image_size
   add_theme_support('post-thumbnails');
+  add_theme_support('html5', array('search-form'));
+
+  add_image_size('w800', 800, 9999);
+  add_image_size('w640', 640, 9999);
+  add_image_size('500x250', 500, 250, 9999);
+  add_image_size('w220x250', 220, 250, 9999);
+  add_image_size('w260x175', 260, 175, 9999);
+  add_image_size('w90x110', 90, 110, 9999);
 
   // Enable post formats
   // http://codex.wordpress.org/Post_Formats
@@ -114,6 +122,8 @@ function display_sidebar() {
     is_404(),
     is_front_page(),
     is_page_template('template-custom.php'),
+    is_page(),
+    is_single(),
   ]);
 
   return apply_filters('sage/display_sidebar', $display);

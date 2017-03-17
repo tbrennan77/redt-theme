@@ -1,13 +1,16 @@
 header {
 	background-color: $color-black;
 }
+main header {
+	background-color: transparent;
+}
 .brand-container {
 	background-color: $color-font-white;
 	padding: 10px 0;
 }
 .menu-bar {
 	background-color: $color-lt-blue;
-	position: fixed;
+	/* position: fixed; */
     width: 100%;
     z-index: 2000;
 }
