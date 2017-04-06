@@ -1,0 +1,43 @@
+.page .brand-container,
+.single .brand-container {
+	display: none;
+}
+.full-width {
+	padding: 50px 0;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+.page .full-width {
+	border-bottom: 10px solid #e6e6e6;
+	padding-top: 200px;
+}
+header.content-header {
+	h1,
+	time, 
+	a, 
+	h3
+	 {
+		color: $color-font-white;
+	}
+	h1 {
+		margin-bottom: 0px;
+		padding-bottom: 0px;
+		font-weight: 700;
+		font-size: 56px;
+		line-height: 56px;
+	}
+	h3 {
+		font-size: 40px;
+		line-height: 44px;
+	}
+	.icon-dark {
+		color: $color-black;
+	}
+	#social-list-header {
+		
+	}
+}

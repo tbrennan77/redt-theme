@@ -4,11 +4,26 @@
       <div class="row">
         <div class="navbar-header hidden-md-down col-lg-9">
           <nav class="nav-primary">
-            <?php
-              if (has_nav_menu('primary_navigation')) :
-                wp_nav_menu(['theme_location' => 'primary_navigation', 'walker' => new wp_bootstrap_navwalker(), 'menu_class' => 'nav navbar-nav']);
-                endif;
-              ?>
+              <div class="row">
+                <div class="col-sm-auto">
+                  <a class="navbar-brand" href="<?= esc_url(home_url('/')); ?>">
+                  <?php
+                    if ( get_theme_mod('theme_logo') ) :
+                      echo '<img src="' . esc_url( get_theme_mod('theme_logo') ) . '" class="img-fluid brand-logo">';
+                    else:
+                      echo get_bloginfo('name') . '<span>' . get_bloginfo('description') . '</span>';
+                    endif;
+                  ?>
+                  </a>
+                </div>
+                <div class="col-sm-10">
+                  <?php
+                    if (has_nav_menu('primary_navigation')) :
+                      wp_nav_menu(['theme_location' => 'primary_navigation', 'walker' => new wp_bootstrap_navwalker(), 'menu_class' => 'nav navbar-nav']);
+                      endif;
+                    ?>
+                </div>
+              </div>
           </nav>
         </div>
         <div class="col-xs-3 hidden-lg-up"><!-- Mobile Menu Here -->
@@ -45,15 +60,7 @@
     <div class="container pr-0 pl-0">
       <div class="row">
         <div class="col-md-3">
-          <a class="navbar-brand" href="<?= esc_url(home_url('/')); ?>">
-            <?php
-              if ( get_theme_mod('theme_logo') ) :
-                echo '<img src="' . esc_url( get_theme_mod('theme_logo') ) . '" class="img-responsive">';
-              else:
-                echo get_bloginfo('name') . '<span>' . get_bloginfo('description') . '</span>';
-              endif;
-            ?>
-            </a>
+
         </div>
         <div class="col-md-9">
             <?php 
@@ -80,9 +87,17 @@
               $key_value = get_post_custom_values('deal_value');
               $deal_value = $key_value[0];
 
+              $key_value = get_post_custom_values('deal_cost');
+              $deal_cost = $key_value[0];
+
+              $key_value   = get_post_custom_values('deal_status');
+              $deal_status = $key_value[0];
+
               ?>
-                <div class="col-md-2 hidden-md-down pull-right">
+                <div class="col-md-2 hidden-md-down pull-right justify-content-center deals">
                   <img src="<?php echo $deal_icon[0]; ?>" title="" />
+                  <span class="deal_cost"><?php echo $deal_cost; ?></span>
+                  <span class="deal_value <?php echo $deal_status; ?>"><?php echo $deal_value; ?></span>
                 </div>
               <?
               endwhile;

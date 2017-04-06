@@ -1,9 +1,9 @@
 .morphsearch {
-	width: 100%;
-	background: #fff;
+	width: 80px;
+	background: transparent;
 	position: absolute;
 	z-index: 10000;
-	top: 5px;
+	top: 26px;
 	right: 0px;
 	-webkit-transform-origin: 100% 0;
 	transform-origin: 100% 0;
@@ -15,8 +15,19 @@
 	transition-timing-function: cubic-bezier(0.7,0,0.3,1);
 	margin-top: 5px;
 	border-radius: 5px;
+    color: #fff;
 }
-
+/*
+input.morphsearch-input::-webkit-input-placeholder {
+    font-family:'FontAwesome';
+}
+input.morphsearch-input::-moz-placeholder {
+    font-family:'FontAwesome';
+}
+input.morphsearch-input::-ms-input-placeholder {
+    font-family:'FontAwesome';
+}
+*/
 .morphsearch.open {
 	width: 100vw;
 	min-height: 250px;
@@ -46,19 +57,55 @@
 }
 
 .morphsearch-input {
-	width: 100%;
+	width: 50%;
 	height: 100%;
 	padding: 0 10% 0 10px;
 	font-weight: 700;
 	border: none;
-	background: transparent;
+	background-color: rgba(255,255,255,.0);
 	font-size: 0.8em;
 	color: #ec5a62;
 	-webkit-transition: font-size 0.5s cubic-bezier(0.7,0,0.3,1);
 	transition: font-size 0.5s cubic-bezier(0.7,0,0.3,1);
 	font-family: $font-primary;
 }
+.morphsearch-form:after {
+	font-family: FontAwesome;
+	font-weight: normal;
+	font-style: normal;
+	display: inline-block;
+	text-decoration: inherit;
+	content: "\f002";
+	color: #fff;
+	position: absolute;
+    left: 10px;
+    z-index: -1;
+    text-shadow: 1px 1px 0 rgba(14,23,29,.43);
+}
+.morphsearch.open {
+	.morphsearch-form:after {
+		display: none;
+	}
+	/* placeholder */
+	.morphsearch-input::-webkit-input-placeholder {
+		color: #c2c2c2;
+	}
 
+	.morphsearch-input:-moz-placeholder {
+		color: #c2c2c2;
+	}
+
+	.morphsearch-input::-moz-placeholder {
+		color: #c2c2c2;
+	}
+
+	.morphsearch-input:-ms-input-placeholder {
+		color: #c2c2c2;
+	}
+	.morphsearch-input {
+		width: 100%;
+	}
+}
 .morphsearch-input::-ms-clear { /* remove cross in IE */
     display: none;
 }
@@ -75,19 +122,19 @@
 
 /* placeholder */
 .morphsearch-input::-webkit-input-placeholder {
-	color: #c2c2c2;
+	color: transparent;
 }
 
 .morphsearch-input:-moz-placeholder {
-	color: #c2c2c2;
+	color: transparent;
 }
 
 .morphsearch-input::-moz-placeholder {
-	color: #c2c2c2;
+	color: transparent;
 }
 
 .morphsearch-input:-ms-input-placeholder {
-	color: #c2c2c2;
+	color: transparent;
 }
 
 /* hide placeholder when active in Chrome */

@@ -1,6 +1,12 @@
 .navbar-header {
-	background-color: #467e9a;
 	padding: 15px 0;
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+}
+.navbar-header-scroll {
+	padding: 8px 0;
 }
 .navbar-brand>img {
     max-height: 140px;
@@ -8,6 +14,16 @@
 }
 .navbar {
 	margin-bottom: 0px;
+}
+.nav {
+	margin: 20px 0px;
+}
+.nav-scroll {
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+	margin: 5px 0px;
 }
 .navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand{
 	margin-left: 0;
@@ -27,16 +43,25 @@
 	display: inline;
 }
 #menu-redt-main-menu li a {
-	font-size: 16px;
-	font-weight: 500;
-	font-family: $font-primary;
-	text-transform: capitalize;
-	padding: 0px;
-	margin: 0px;
+    font-size: 22px;
+    font-weight: 700;
+    font-family: $font-primary;
+    text-transform: capitalize;
+    padding: 0;
+    margin: 0;
+    letter-spacing: -1px;
+    -webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+}
+.menu-font-scroll {
+	font-size: 18px !important;
 }
 #menu-redt-main-menu li a:hover,
-#menu-redt-main-menu li a:focus {
-	color: #fff;
+#menu-redt-main-menu li a:focus,
+#menu-redt-main-menu li.current-menu-item a {
+	color: #74b9d6;
 	pointer-events: all;
 	text-decoration: none;
 	border-bottom-width: 0px;
@@ -283,6 +308,8 @@ button.navbar-toggle:after {
     padding: 10px;
     margin: 0;
 }
+
+
 
 @media screen 
   and (min-width: 300px)

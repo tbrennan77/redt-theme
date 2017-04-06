@@ -39,6 +39,7 @@ function setup() {
 
   add_image_size('w800', 800, 9999);
   add_image_size('w640', 640, 9999);
+  add_image_size('375x185', 375, 185, 9999);
   add_image_size('500x250', 500, 250, 9999);
   add_image_size('w220x250', 220, 250, 9999);
   add_image_size('w260x175', 260, 175, 9999);
@@ -72,8 +73,26 @@ function widgets_init() {
   ]);
 
   register_sidebar([
-    'name'          => __('Footer', 'sage'),
-    'id'            => 'sidebar-footer',
+    'name'          => __('Footer Left', 'sage'),
+    'id'            => 'sidebar-footer-left',
+    'before_widget' => '<section class="widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h3>',
+    'after_title'   => '</h3>'
+  ]);
+
+  register_sidebar([
+    'name'          => __('Footer Center', 'sage'),
+    'id'            => 'sidebar-footer-center',
+    'before_widget' => '<section class="widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h3>',
+    'after_title'   => '</h3>'
+  ]);
+
+  register_sidebar([
+    'name'          => __('Footer Right', 'sage'),
+    'id'            => 'sidebar-footer-right',
     'before_widget' => '<section class="widget %1$s %2$s">',
     'after_widget'  => '</section>',
     'before_title'  => '<h3>',
@@ -124,6 +143,7 @@ function display_sidebar() {
     is_page_template('template-custom.php'),
     is_page(),
     is_single(),
+    is_category()
   ]);
 
   return apply_filters('sage/display_sidebar', $display);

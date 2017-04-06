@@ -31,7 +31,7 @@
 							$recent_posts = wp_get_recent_posts( $args );
 							foreach( $recent_posts as $recent ){ ?>
 								<a class="search-media-object" href="<?php echo get_permalink($recent["ID"]); ?>">
-								<img class="round" src="<?php echo get_the_post_thumbnail($recent["ID"], 'thumbnail'); ?>" alt="" />
+								<img class="round" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="" />
 								<h3><?php echo  __($recent["post_title"]); ?></h3>
 							</a>
 							<?php }

@@ -27,7 +27,71 @@
             ticker: true,
             speed: 50000
         });
-        
+        function windowPopup(url, width, height) {
+          // Calculate the position of the popup so
+          // it’s centered on the screen.
+          var left = (screen.width / 2) - (width / 2),
+              top = (screen.height / 2) - (height / 2);
+
+          window.open(
+            url,
+            "",
+            "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=" + width + ",height=" + height + ",top=" + top + ",left=" + left
+          );
+        }
+
+        $(window).on("scroll", function() {
+          if($(window).scrollTop() > 100) {
+              $("body>header").addClass("header-scroll");
+              $(".brand-logo").addClass("brand-logo-scroll");
+              $(".nav").addClass("nav-scroll");
+              $(".navbar-header").addClass("navbar-header-scroll");
+              $("#menu-redt-main-menu li a").addClass("menu-font-scroll");
+          } else {
+              //remove the background property so it comes transparent again (defined in your css)
+             $("body>header").removeClass("header-scroll");
+             $(".brand-logo").removeClass("brand-logo-scroll");
+             $(".nav").removeClass("nav-scroll");
+             $(".navbar-header").removeClass("navbar-header-scroll");
+             $("#menu-redt-main-menu li a").removeClass("menu-font-scroll");
+          }
+        });
+
+        $(".js-social-share").on("click", function(e) {
+          e.preventDefault();
+
+          windowPopup($(this).attr("href"), 500, 300);
+        });
+
+        $(".bctt-ctt-text a").on("click", function(e) {
+          e.preventDefault();
+
+          windowPopup($(this).attr("href"), 500, 300);
+        });
+
+        // Vanilla JavaScript
+        var jsSocialShares = document.querySelectorAll(".js-social-share");
+        if (jsSocialShares) {
+          [].forEach.call(jsSocialShares, function(anchor) {
+            anchor.addEventListener("click", function(e) {
+              e.preventDefault();
+
+              windowPopup(this.href, 500, 300);
+            });
+          });
+        }
+
+        var jsClicktoTweet = document.querySelectorAll(".bctt-ctt-text a");
+        if (jsClicktoTweet) {
+          [].forEach.call(jsClicktoTweet, function(anchor) {
+            anchor.addEventListener("click", function(e) {
+              e.preventDefault();
+
+              windowPopup(this.href, 500, 300);
+            });
+          });
+        }
+
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired

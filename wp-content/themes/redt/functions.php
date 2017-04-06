@@ -203,3 +203,128 @@ function form_submit_button( $button, $form ) {
     return "<button class='btn btn-primary btn-block' id='gform_submit_button_{$form['id']}'><span>Subscribe</span></button>";
 }
 
+
+
+// Replaces the excerpt "Read More" text by a link
+function new_excerpt_more($more) {
+       global $post;
+  return '<button class="btn btn-primary hvr-grow clearfix"><a class="moretag" href="'. get_permalink($post->ID) . '"> Read the full article...</a></button>';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
+
+
+
+
+function custom_pagination($numpages = '', $pagerange = '', $paged='') {
+
+  if (empty($pagerange)) {
+    $pagerange = 2;
+  }
+
+  /**
+   * This first part of our function is a fallback
+   * for custom pagination inside a regular loop that
+   * uses the global $paged and global $wp_query variables.
+   * 
+   * It's good because we can now override default pagination
+   * in our theme, and use this function in default quries
+   * and custom queries.
+   */
+  global $paged;
+  if (empty($paged)) {
+    $paged = 1;
+  }
+  if ($numpages == '') {
+    global $wp_query;
+    $numpages = $wp_query->max_num_pages;
+    if(!$numpages) {
+        $numpages = 1;
+    }
+  }
+
+  /** 
+   * We construct the pagination arguments to enter into our paginate_links
+   * function. 
+   */
+  $pagination_args = array(
+    'base'            => get_pagenum_link(1) . '%_%',
+    'format'          => 'page/%#%',
+    'total'           => $numpages,
+    'current'         => $paged,
+    'show_all'        => False,
+    'end_size'        => 1,
+    'mid_size'        => $pagerange,
+    'prev_next'       => True,
+    'prev_text'       => __('&laquo;'),
+    'next_text'       => __('&raquo;'),
+    'type'            => 'plain',
+    'add_args'        => false,
+    'add_fragment'    => ''
+  );
+
+  $paginate_links = paginate_links($pagination_args);
+
+  if ($paginate_links) {
+    echo "<nav class='custom-pagination text-center mb-4'>";
+      //echo "<span class='page-numbers page-num'>Page " . $paged . " of " . $numpages . "</span> ";
+      echo $paginate_links;
+    echo "</nav>";
+  }
+
+}
+
+
+function homepage_podcasts() {
+
+$args = array(
+ 'category_name' => 'podcast',
+ 'posts_per_page' => '3',
+ 'order'=>'ASC'
+);
+
+// the query
+$query = new WP_Query( $args );
+$count = 0;
+
+  // The Loop
+  if ( $query->have_posts() ) {
+    $count = 1;
+    ?>
+    <div class="container">
+      <div class="row mx-auto align-items-center">
+      <div class="col-sm-12">
+        <h3 class="widget-title">Featured Talks</h3>
+      </div>
+        <?php
+        while ( $query->have_posts() ) : $query->the_post() ;
+
+        $key_value = get_post_custom_values('episode_number');
+        $episode_number = $key_value[0];
+
+        $featured_image = get_the_post_thumbnail_url(get_the_ID(), '375x185');
+
+        ?>
+        <div class="col-sm-4">
+          <div class="podcast">
+            <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+              <img src="<?php echo $featured_image; ?>" class="img-fluid header" />
+            </a>
+            <h4><?php echo the_title(); ?></h4> 
+            <h5>Episode <?php echo $episode_number; ?></h5>
+            <div class="excerpt">
+            <?php echo the_excerpt(); ?>
+            </div>
+          </div>
+        </div>
+        <?php
+
+        $count++;
+        endwhile;  ?>
+      </div>
+    </div>
+
+    <?php
+  }
+}
+
+add_shortcode( 'homepage_podcasts', 'homepage_podcasts' );

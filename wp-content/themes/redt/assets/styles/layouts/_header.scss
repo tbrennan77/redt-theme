@@ -1,16 +1,66 @@
 header {
-	background-color: $color-black;
+	background-color: transparent;
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+}
+header:hover, 
+header:focus, 
+header:active {
+	background-color: rgba(58, 58, 58, .5);
+}
+.header-scroll {
+	background-color: rgba(58, 58, 58, 1);
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+	height: 60px;
+}
+.brand-logo {
+	height: 80px;
+	width: auto;
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+}
+.brand-logo-scroll {
+	height: 40px;
+	width: auto;
 }
 main header {
 	background-color: transparent;
+}
+header .deals {
+	text-align: center;
+}
+header .deals {
+	span.deal_cost {
+		font-weight: 700;
+		border-bottom: 2px solid #777;
+	    padding-bottom: 4px;
+	}
+	span.deal_value.great {
+		color: green;
+	}
+	span.deal_value.good {
+		color: green;
+	}
+	span.deal_value.neutral {
+		color: yellow;
+	}
+	span.deal_value.bad {
+		color: red;
+	}
 }
 .brand-container {
 	background-color: $color-font-white;
 	padding: 10px 0;
 }
+
 .menu-bar {
-	background-color: $color-lt-blue;
-	/* position: fixed; */
     width: 100%;
     z-index: 2000;
 }
